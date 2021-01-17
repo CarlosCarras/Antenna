@@ -1,0 +1,16 @@
+// Pulling from GitHub
+cd ~/tests/imu_init
+git pull https://github.com/CarlosCarras/D3-Software.git antenna_test
+cd antenna_test
+
+// Compiling
+gcc -c -std=c99 -o lsquaredc.o lsquaredc.c
+g++ -c -std=c++0x -c -o I2C_Functions.o I2C_Functions.cpp
+g++ -c -std=c++0x -c -o ISIS_Antenna.o ISIS_Antenna.cpp
+g++ -c -std=c++0x -c -o main.o main.cpp
+
+// Creating Executable
+g++ -o testapp lsquaredc.o I2C_Functions.o ISIS_Antenna.o main.o
+
+// Running Executable
+./testapp
