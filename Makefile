@@ -21,7 +21,7 @@ lsquaredc.o: lsquaredc.h lsquaredc.c
 	$(CC) $(CFLAGS) -c lsquaredc.c -o lsquaredc.o
 
 test: lsquaredc.o I2C_Functions.o ISIS_Antenna.o main.o
-	$(CCC) $(CPPFLAGS) -o test main.o ISIS_Antenna.o I2C_Functions.o
+	$(CCC) $(CPPFLAGS) -o test main.o ISIS_Antenna.o I2C_Functions.o lsquaredc.o
 
 # i2clib.a: libi2c.o
 #	 ar rcs i2clib.a libi2c.o lsquaredc.o
