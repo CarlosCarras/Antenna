@@ -7,10 +7,11 @@
  * 
  * Author     : Carlos Carrasquillo
  * Date       : July 16, 2020
- * Modified   : January 17, 2021
+ * Modified   : March 26, 2021
  * Proprty of : ADAMUS Lab
  ****************************************************************************/
 
+#include <unistd.h>
 #include "ISIS_Antenna.h"
 
 
@@ -105,7 +106,8 @@ float ISIS_Antenna::getTemperature() {
 		 if (vread >= vout[i]) {
 		 	return temp[i];
 		 }
-	}					
+	}
+	return -200;				
 }
 
 uint16_t ISIS_Antenna::getStatusCode() {

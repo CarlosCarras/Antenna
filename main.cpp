@@ -4,14 +4,16 @@
 
 int main() {
     ISIS_Antenna Antenna(2);
-    float temperature; 
     
-/*     for(int i=1; i<5; i++) {
+    /*  
+    float temperature; 
+    for(int i=1; i<5; i++) {
         Antenna.getStatus();
         temperature = Antenna.getTemperature();
         std::cout << "Antenna System Temperature: " << temperature << " DegC\n" << std::endl; 
         usleep(2000000);            // 2 second delay
-    } */
+    } 
+    */
 
 	Antenna.armAntennas();
     Antenna.overrideAntenna(1);
