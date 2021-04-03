@@ -98,8 +98,13 @@ private:
 	 			           135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 
 	 			           147, 148, 149, 150};
 
+	/* Debug Functions */
+    bool debug;
+    void printe(std::string str) { if (debug) std::cout << "ERROR: " << str << " (UHF_Transceiver.cpp)" << std::endl; }
+	void printi(std::string str) { if (debug) std::cout << "INFO: " << str << " (UHF_Transceiver.cpp)" << std::endl; }	
+
 public:
-	explicit ISIS_Antenna(uint8_t bus = 2);
+	explicit ISIS_Antenna(bool debug = false, uint8_t bus = 2);
 	void resetController();											// perform a reset of the microcontroller.
 	void selectMicrocontroller(int microcontroller);				// select between one of two (0 or 1) redundant microcontrollers.
 	void toggleMicrocontroller();									// toggle between one of two (0 or 1) redundant microcontrollers.

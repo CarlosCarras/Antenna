@@ -15,7 +15,8 @@
 #include "ISIS_Antenna.h"
 
 
-ISIS_Antenna::ISIS_Antenna(uint8_t bus) {
+ISIS_Antenna::ISIS_Antenna(bool debug, uint8_t bus) {
+	this->debug = debug;
 	i2c = new I2C_Functions(bus, ISIS_ANTENNA_I2C_ADDR_M0);
 	microcontroller = 0;
 	resetController();
@@ -36,7 +37,7 @@ void ISIS_Antenna::selectMicrocontroller(int microcontroller) {
 		microcontroller = 1;
 		resetController();
 	} else {
-		std::cout << "ERROR: Please select an microcontroller (0 or 1)." << std::endl;
+		printe("Please select an microcontroller (0 or 1).");
 	}
 }
 
@@ -160,7 +161,10 @@ uint16_t ISIS_Antenna::getStatus() {
 	if (BIT_VAL(status, 15)) out_str += "\tAntenna 1's deployment switch indicates the antenna is NOT deployed.\n";
 					 	else out_str += "\tAntenna 1's deployment switch indicates the antenna is deployed.\n";
 
-	std::cout << out_str << "Status Code: " << status << ".\n" << std::endl;
+	if (debug) {
+		std::cout << out_str += "Status Code: " << status << ".\n" << std::endl;
+	}
+	
 	return status;
 }
 
