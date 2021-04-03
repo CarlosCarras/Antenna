@@ -162,7 +162,8 @@ uint16_t ISIS_Antenna::getStatus() {
 					 	else out_str += "\tAntenna 1's deployment switch indicates the antenna is deployed.\n";
 
 	if (debug) {
-		std::cout << out_str += "Status Code: " << status << ".\n" << std::endl;
+		printi(out_str);
+		i2c->print_uint16("Status Code", status);
 	}
 	
 	return status;

@@ -1,9 +1,10 @@
 #include <iostream>
 #include "ISIS_Antenna.h"
 
+#define DEBUG 1
 
 int main() {
-    ISIS_Antenna Antenna(2);
+    ISIS_Antenna Antenna(DEBUG);
     
     /*  
     float temperature; 
